@@ -1,0 +1,23 @@
+Fetcher.java v0.1
+
+Fetcher utilizes data synchronization services on a java platform.
+Current implementation uses FireFox's Sync service and makes the 
+data usable on the BlackBerry Java platform.
+
+Usage:
+* Fetcher.getInstance().addSubscriber(aListener).setLogin("as","d","f").pull(); //syncFetcher
+
+Outward facing API: 
+* iFetcher.java
+
+Customization:
+// Create a new service
+iFetcher service = new SyncFetcher();
+// Set its platform/service specific modules
+service.setCryptoEngine(iCryptoModule);
+service.setJsonFactory(iJsonModule);
+service.setNetworkConnector(iSmugglerModule);
+// Now add the service
+Fetcher.getInstance().setService(service);
+
+MIT License <Copyright (C) 2011 by cwdesautels@yahoo.com>
